@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-	before_action :authenticate
+	
 
   def index
     @pins = Pin.all.order('created_at DESC')
