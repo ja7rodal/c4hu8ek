@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 	def authenticate
 		user = User.find_by email: request.headers['X-User-Email'];
 		
-		if user_api_token != request.headers['X-Api-Token']
+		if user.api_token != request.headers['X-Api-Token']
 			render json: { error: "Denied" }, status: 401			
 		else
 			return true
